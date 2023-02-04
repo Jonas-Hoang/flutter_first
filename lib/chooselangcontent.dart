@@ -22,44 +22,76 @@ class ChooseLanguageContent extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 20.0),
-            child: Container(
-              width: 268,
+            child: SizedBox(
+              width: 240,
               height: 50,
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(15)),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(18, 15, 0, 15),
-                    child: Row(
-                      children: [
-                        Container(
-                          width: 20,
-                          height: 20,
-                          decoration: BoxDecoration(
-                              color: Colors.red,
-                              borderRadius: BorderRadius.circular(50)),
-                          child: const Icon(
-                            Icons.star,
-                            color: Colors.yellow,
-                            size: 14,
-                          ),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.white),
+                ),
+                onPressed: () => {
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) => AlertDialog(
+                            /// Can use something
+                            title: const Text('Show Dialog Piepme Back'),
+                            content:
+                                const Text('Do you want to back this dialog?'),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () =>
+                                    Navigator.pop(context, 'Cancel'),
+                                child: const Text('Cancel'),
+                              ),
+                              TextButton(
+                                onPressed: () => Navigator.pop(context, 'OK'),
+                                child: const Text('OK'),
+                              ),
+                            ],
+                          ))
+                },
+                child: Container(
+                  width: 268,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15)),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(18, 15, 0, 15),
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 20,
+                              height: 20,
+                              decoration: BoxDecoration(
+                                  color: Colors.red,
+                                  borderRadius: BorderRadius.circular(50)),
+                              child: const Icon(
+                                Icons.star,
+                                color: Colors.yellow,
+                                size: 14,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 12,
+                            ),
+                            const Text(
+                              'Vietnam',
+                              style: TextStyle(
+                                  decoration: TextDecoration.none,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(255, 104, 104, 104)),
+                            )
+                          ],
                         ),
-                        const SizedBox(
-                          width: 12,
-                        ),
-                        const Text(
-                          'Vietnam',
-                          style: TextStyle(
-                              decoration: TextDecoration.none,
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 104, 104, 104)),
-                        )
-                      ],
-                    ),
-                  )
-                ],
+                      )
+                    ],
+                  ),
+                ),
               ),
             ),
           )

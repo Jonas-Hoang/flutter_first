@@ -35,7 +35,7 @@ class EnterNickname extends GetView {
                     autocorrect: false,
                     decoration: InputDecoration(
                         contentPadding: EdgeInsets.fromLTRB(15, 13, 0, 0),
-                        hintText: 'Cho cái tên xà lơ',
+                        hintText: 'Enter nickname',
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                             borderSide: BorderSide.none),
